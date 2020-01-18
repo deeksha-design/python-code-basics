@@ -1,0 +1,53 @@
+//A Simple Python Heatmap Example
+import seaborn as sn
+>>> import numpy as np
+>>> import pandas as pd
+>>> df=pd.DataFrame(np.random.random((7,7)),columns=['a','b','c','d','e','f','g'])
+>>> sn.heatmap(df)
+
+//Annotating your Python heatmap
+
+sn.heatmap(df,annot=True,annot_kws={'size':7})
+
+//Adding Grid Lines
+It is possible to add grid lines to your Python heatmap. In the following piece of code, we add pink grid lines of thickness 2.5.
+Let’s discuss Python Scipy
+
+>>> sn.heatmap(df,linewidths=2.5,linecolor='pink')
+
+ //Removing X or Y labels
+In the next piece of code, we remove the x tick labels from the map.
+
+>>> sn.heatmap(df,xticklabels=False)
+
+//Removing the color bar
+The vertical bar at the extreme right of this Python Heatmap tells us what values the colors represent. But we can choose to not display it.
+Let’s revise Python Array Module
+
+>>> sn.heatmap(df,cbar=False)
+
+ //Keeping only a few labels
+Basically, when there are too many cells/labels, there may be overlapping. To avoid this, you can give a value x to the xticklabels parameter. It then shows labels every x labels.
+
+>>> sn.heatmap(df,xticklabels=2)
+
+//Choosing a color theme for your heatmap
+Let’s try a green.
+
+>>> sn.heatmap(df,cmap='Greens')
+
+Plotting a discrete heatmap
+For discrete data, you can choose to plot it with a Python heatmap.
+
+i. Normalizing a column
+So, consider the following piece of code-
+
+>>> df=pd.DataFrame(np.random.randn(7,7)*4+3)
+>>> df[1]=df[1]+37
+>>> sn.heatmap(df,cmap='plasma')
+
+df_norm=(df-df.mean())/df.std()
+>>> sn.heatmap(df_norm,cmap='plasma')
+
+
+
