@@ -1,0 +1,88 @@
+PACKAGES IN PYTHON
+ import numpy as np
+ import pandas as pd
+import scipy as sp
+import matplotlib.pyplot as plt
+import seaborn as sns
+import os
+import os.sys
+import csv
+from sklearn.model_selection import train_test_split
+os.getcwd("")#to print the current directory#
+os.chdir("")#to change the working directory#
+df=pd.read_csv("")
+print(df)
+df.head(n=5)#top 5 records
+df.head()#all records
+df.tail(n=5)#bottom 5 records
+df.describe()#all information will be displayed i.e statistics data
+df.columns# to see no of columns
+df.isna() #to check the missing values
+df.isna().sum() to check the missing values in each individual columns
+df[df.isna().any(axis=1)] ##to extract the missing row 
+df.shape : no of rows and columns
+S.value_counts(dropna=false) #view unique values and counts
+df.apply(pd.series.value_counts) ##unique values and counts for all columns.
+SELECTION :
+df[col] # return column with label col as series
+df[[col1,col2]] #returns columns as a new data frame
+s.iloc[0] #selection by position
+sloc['index_one'] #selection by index
+df.iloc[0,:] ## first row 
+df.iloc[0,0] ##first element of first column
+df.info
+
+DATA CLEANING :
+df.columns=['a', 'b','c'] ##rename columns
+pd.isnull()## checks for null values ,returns boolean array 
+pd.notnull() ##opposite of pd.isnull() 
+df.dropna()## drop all rows tht contains null values
+df.dropna(axis=1) ##drop all columns tht contains null values
+df.dropna(axis=1,thresh=n) ##drop all rows which have less than n non null values
+df.fillna(x) ## replace all null values with x
+s.fillna(s.mean()) replace all null values with the mean
+
+FILTER,SORT AND GROUP BY :
+df[df[col]>0.6]: # rows where the column is >than 0.6
+df[(df[col]>0.6)&(df[col]<0.8)] ##rows where 0.8>col>0.6
+df.sort_values(col1) ##sort values by col1 in ascending order
+df.sort_values(col2,ascending=False) ##sort values by col2 in ascending order 
+df.sort_values([col1,col2],ascending=[True,False]) ##sort values by col1 in ascending order then col2 in decresing order
+df.groupby(col) ##returns a group by object for values from one column
+df.groupby([col1,col2]) ##returns a group by object for values from multiple columns
+df.groupby(col1)[col2]## returns the means of the values in col2 ,group by the values in col1 
+df.pivot_table(index=col1,values=[col2,col3],aggfunc=mean) :create a pivot table tht groups by col1 and calculate the mean of col2 and col3
+df.groupby(col1).agg(np.mean) : ##find the avg across all columns for evry unique col1 group 
+df.apply(np.mean) : ##apply the function np.mean () across each column
+nf.apply(np.max,axis=1) ##apply the function np.max() accross each row
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+REGRESSION:
+ data distribution plot 
+sns.distplot(df['dependent variable'])df is name here exmple type
+
+correlation
+sns.heatmap(df.corr()) ##to run the correlation
+
+ 
+
+
+
